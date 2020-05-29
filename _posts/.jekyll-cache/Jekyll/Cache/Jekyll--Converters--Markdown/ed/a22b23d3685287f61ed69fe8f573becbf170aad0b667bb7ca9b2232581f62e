@@ -1,0 +1,135 @@
+I"".<h2 id="naming-and-path">Naming and Path</h2>
+
+<p>Create a new file named with the format <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-title.md</code> then put it into <code class="language-plaintext highlighter-rouge">_post</code> of the root directory.</p>
+
+<h2 id="front-matter">Front Matter</h2>
+
+<p>Basically, you need to fill the <a href="https://jekyllrb.com/docs/front-matter/">Front Matter</a> as below at the top of the post:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">TITLE</span>
+<span class="na">date</span><span class="pi">:</span> <span class="s">YYYY-MM-DD HH:MM:SS +/-TTTT</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">TOP_CATEGORIE</span><span class="pi">,</span> <span class="nv">SUB_CATEGORIE</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">TAG</span><span class="pi">]</span>     <span class="c1"># TAG names should always be lowercase</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>Note</strong>: The posts’ <strong><em>layout</em></strong> has been set to <code class="language-plaintext highlighter-rouge">post</code> by default, so there is no need to add the variable <strong><em>layout</em></strong> in Front Matter block.</p>
+</blockquote>
+
+<h3 id="timezone-of-date">Timezone of date</h3>
+
+<p>In order to accurately record the release date of a post, you should not only setup the <code class="language-plaintext highlighter-rouge">timezone</code> of <code class="language-plaintext highlighter-rouge">_config.yml</code> but also provide the the post’s timezone in field <code class="language-plaintext highlighter-rouge">date</code> of its Front Matter block. Format: <code class="language-plaintext highlighter-rouge">+/-TTTT</code>, e.g. <code class="language-plaintext highlighter-rouge">+0800</code>.</p>
+
+<h3 id="categories-and-tags">Categories and Tags</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">categories</code> of each post is designed to contain up to two elements, and the number of elements in <code class="language-plaintext highlighter-rouge">tags</code> can be zero to infinity.</p>
+
+<p>The list of posts belonging to the same category/tag is recorded on a separate page. The number of such <em>category</em>/<em>tag</em> type pages is equal to the number of <code class="language-plaintext highlighter-rouge">categories</code>/<code class="language-plaintext highlighter-rouge">tags</code> for all posts, they must match perfectly.</p>
+
+<p>let’s say there is a post with front matter:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">Animal</span><span class="pi">,</span> <span class="nv">Insect</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="s">bee</span>
+</code></pre></div></div>
+
+<p>then we should have two <em>category</em> type pages placed in folder <code class="language-plaintext highlighter-rouge">categories</code> of root and one <em>tag</em> type page placed in folder <code class="language-plaintext highlighter-rouge">tags</code>  of root:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">jekyll-theme-chirpy
+├── categories
+│   ├── animal.html
+│   └── insect.html
+├── tags
+│   └── bee.html
+</span><span class="c">...
+</span></code></pre></div></div>
+
+<p>and the content of a <em>category</em> type page is</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">category</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">CATEGORY_NAME</span>        <span class="c1"># e.g. Insect</span>
+<span class="na">category</span><span class="pi">:</span> <span class="s">CATEGORY_NAME</span>     <span class="c1"># e.g. Insect</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<p>the content of a <em>tag</em> type page is</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">tag</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">TAG_NAME</span>             <span class="c1"># e.g. bee</span>
+<span class="na">tag</span><span class="pi">:</span> <span class="s">TAG_NAME</span>               <span class="c1"># e.g. bee</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<p>With the increasing number of posts, the number of categories and tags will increase several times!  If we still manually create these <em>category</em>/<em>tag</em> type files, it will obviously be a super time-consuming job, and it is very likely to miss some of them(i.e. when you click on the missing <code class="language-plaintext highlighter-rouge">category</code> or <code class="language-plaintext highlighter-rouge">tag</code> link from a post or somewhere, it will complain to you ‘404’). The good news is that we got a lovely script tool <code class="language-plaintext highlighter-rouge">_scripts/sh/create_pages.sh</code> to finish the boring task. Basically we will use it via <code class="language-plaintext highlighter-rouge">tools/init.sh</code> instead of running it separately. Check out its use case <a href="/posts/getting-started/#option-1-built-by-github-pages">here</a>.</p>
+
+<h2 id="last-modified-date">Last modified date</h2>
+
+<p>The last modified date of a post is obtained according to its latest git commit date, and all the modified date of the posts should be stored in <code class="language-plaintext highlighter-rouge">_data/updates.yml</code>. For example:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span>
+  <span class="na">filename</span><span class="pi">:</span> <span class="s">getting-started</span>             <span class="c1"># the post filename without date and extension</span>
+  <span class="na">lastmod</span><span class="pi">:</span> <span class="s">2020-04-13 00:38:56 +0800</span>    <span class="c1"># the post last modified date</span>
+<span class="pi">-</span>
+  <span class="s">...</span> 
+</code></pre></div></div>
+
+<p>You can choose to create this file manually, but as you may notice, the better approach is to let it be automatically generated by a tool script. And <code class="language-plaintext highlighter-rouge">_scripts/sh/dump_lastmod.py</code> was born for this! Similar to the another script <code class="language-plaintext highlighter-rouge">_scripts/sh/create_pages.sh</code> mentioned above, it is also be called from <code class="language-plaintext highlighter-rouge">tools/init.sh</code>, so it doesn’t have to be used separately.</p>
+
+<p>When some posts have been modified since their published date and also the file <code class="language-plaintext highlighter-rouge">_data/updates.yml</code> was created correctly, a list with the label <strong>Recent Updates</strong> will be displayed in the right panel of the desktop view, which records the five most recently modified articles.</p>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<p>By default, the <strong>T</strong>able <strong>o</strong>f <strong>C</strong>ontents (TOC) is displayed on the right panel of the post. If you want to turn it off globally, go to <code class="language-plaintext highlighter-rouge">_config.yml</code> and set the variable <code class="language-plaintext highlighter-rouge">toc</code> to <code class="language-plaintext highlighter-rouge">false</code>. If you want to turn off TOC for specific post, add the following to post’s <a href="https://jekyllrb.com/docs/front-matter/">Front Matter</a>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">toc</span><span class="pi">:</span> <span class="no">false</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h2 id="comments">Comments</h2>
+
+<p>Similar to TOC, the <a href="https://disqus.com/">Disqus</a> comments is loaded by default in each post, and the global switch is defined by variable <code class="language-plaintext highlighter-rouge">comments</code> in file <code class="language-plaintext highlighter-rouge">_config.yml</code> . If you want to close the comment for specific post, add the following to the <strong>Front Matter</strong> of the post:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">comments</span><span class="pi">:</span> <span class="no">false</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h2 id="code-block">Code Block</h2>
+
+<p>Markdown symbols <code class="highlighter-rouge">```</code> can easily create a code block as following examples.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is a common code snippet, without syntax highlight and line number.
+</code></pre></div></div>
+
+<h2 id="specific-language">Specific Language</h2>
+
+<p>Using <code class="highlighter-rouge">```Language</code> you will get code snippets with line Numbers and syntax highlight.</p>
+
+<blockquote>
+  <p><strong>Note</strong>: The Jekyll style <code class="language-plaintext highlighter-rouge">{% highlight LANGUAGE %}</code> or <code class="language-plaintext highlighter-rouge">{% highlight LANGUAGE linenos %}</code> are not allowed to be used in this theme !</p>
+</blockquote>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Yaml code snippet</span>
+<span class="na">items</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">part_no</span><span class="pi">:</span>   <span class="s">A4786</span>
+      <span class="na">descrip</span><span class="pi">:</span>   <span class="s">Water Bucket (Filled)</span>
+      <span class="na">price</span><span class="pi">:</span>     <span class="m">1.47</span>
+      <span class="na">quantity</span><span class="pi">:</span>  <span class="m">4</span>
+</code></pre></div></div>
+
+<h4 id="liquid-codes">Liquid codes</h4>
+
+<p>If you want to display the <strong>Liquid</strong> snippet, surround the liquid code with <code class="language-plaintext highlighter-rouge">{% raw %}</code> and <code class="language-plaintext highlighter-rouge">{% endraw %}</code> .</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s1">'Pack'</span><span class="w"> </span><span class="p">%}</span>
+  This product's title contains the word Pack.
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<h2 id="learn-more">Learn More</h2>
+<p>For more knowledge about Jekyll posts, visit the <a href="https://jekyllrb.com/docs/posts/">Jekyll Docs: Posts</a>.</p>
+
+:ET

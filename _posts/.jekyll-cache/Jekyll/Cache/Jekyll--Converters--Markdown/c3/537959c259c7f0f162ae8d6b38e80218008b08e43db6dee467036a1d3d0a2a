@@ -1,0 +1,254 @@
+I"�5<h2 id="prerequisites">Prerequisites</h2>
+
+<p>Follow the <a href="https://jekyllrb.com/docs/installation/">Jekyll Docs</a> to complete the installtion of basic environment (<code class="language-plaintext highlighter-rouge">Ruby </code>, <code class="language-plaintext highlighter-rouge">RubyGems</code> and <code class="language-plaintext highlighter-rouge">Bundler</code>).</p>
+
+<p>To improve the writing experience, we need to use some script tools. If your machine is running Debian or macOS, make sure that <a href="https://www.gnu.org/software/coreutils/">GNU coreutils</a> is installed. Otherwise, install by:</p>
+
+<ul>
+  <li>Debian</li>
+</ul>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>coreutils
+</code></pre></div></div>
+
+<ul>
+  <li>macOS</li>
+</ul>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>brew <span class="nb">install </span>coreutils
+</code></pre></div></div>
+
+<h2 id="jekyll-plugins">Jekyll Plugins</h2>
+
+<p><a href="https://github.com/cotes2020/jekyll-theme-chirpy/fork">Fork <strong>Chirpy</strong> from GitHub</a>, then clone your forked repo to local:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>git clone git@github.com:USER/jekyll-theme-chirpy.git <span class="nt">-b</span> master
+</code></pre></div></div>
+
+<p>and replace the <code class="language-plaintext highlighter-rouge">USER</code> above to your GitHub username.</p>
+
+<p>The first time you run or build the project on local machine, perform the installation of Jekyll plugins. Go to the root of repo and run:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">bundle</code> will automatically install all the dependent Jekyll Plugins that listed in the <code class="language-plaintext highlighter-rouge">Gemfile</code>.</p>
+
+<h2 id="directory-structure">Directory Structure</h2>
+
+<p>The main files and related brief introductions are listed below.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll-theme-chirpy/
+├── _data
+├── _includes      
+├── _layouts
+├── _posts          <span class="c"># posts stay here</span>
+├── _scripts
+├── .travis.yml     <span class="c"># remove it</span>
+├── .github         <span class="c"># remove this, too</span>
+├── assets      
+├── tabs
+│   └── about.md    <span class="c"># the ABOUT page</span>
+├── .gitignore
+├── 404.html
+├── Gemfile
+├── LICENSE
+├── README.md
+├── _config.yml     <span class="c"># configuration file</span>
+├── tools           <span class="c"># script tools</span>
+├── feed.xml
+├── index.html
+├── robots.txt
+└── sitemap.xml
+</code></pre></div></div>
+
+<p>As mentioned above, some files or directories should be removed from your repo:</p>
+
+<ul>
+  <li>.travis.yml</li>
+  <li>.github</li>
+</ul>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>Generally, go to <code class="language-plaintext highlighter-rouge">_config.yml</code> and configure the variables as needed. Some of them are typical options:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">url</code></p>
+
+    <p>Set to your website url and there should be no slash symbol at the tail. Format: <code class="language-plaintext highlighter-rouge">&lt;protocol&gt;://&lt;domain&gt;</code>.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">avatar</code></p>
+
+    <p>It defines the image file location of avatar. The sample image is <code class="language-plaintext highlighter-rouge">/assets/img/sample/avatar.jpg</code>, and should be replaced by your own one(a square image). Notice that a huge image file will increase the load time of your site, so keep your avatar image size as samll as possible(may be <em><a href="https://tinypng.com/">https://tinypng.com/</a></em> will help).</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">timezone</code></p>
+
+    <p>To ensure that the posts’ release date matches the city you live in, please modify the field <code class="language-plaintext highlighter-rouge">timezone</code> correctly. A list of all available values can be found on <a href="http://www.timezoneconverter.com/cgi-bin/findzone/findzone">TimezoneConverter</a> or <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Wikipedia</a>.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">theme_mode</code></p>
+
+    <p>There are three options for the theme color scheme:</p>
+
+    <ul>
+      <li>
+        <p><strong>dual</strong>  - The default color scheme will follow the system settings, but if the system does not support dark mode, or the browser does not support <code class="language-plaintext highlighter-rouge">Media Queries Level 5</code>, the theme will be displayed as <code class="language-plaintext highlighter-rouge">light</code> mode by default. Anyway, the bottom left corner of the Sidebar will provide a button for users to switch color schemes.</p>
+      </li>
+      <li><strong>dark</strong>  - Always show dark mode.</li>
+      <li><strong>light</strong> - Always show light mode.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="run-locally">Run Locally</h2>
+
+<p>You may want to preview the site content before publishing, so just run the script tool:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bash tools/run.sh
+</code></pre></div></div>
+
+<p>Open a brower and visit <a href="http://localhost:4000">http://localhost:4000</a>.</p>
+
+<p>Few days later, you may find that the file changes does not refresh in real time by using <code class="language-plaintext highlighter-rouge">run.sh</code>. Don’t worry, the advanced option <code class="language-plaintext highlighter-rouge">-r</code> (or <code class="language-plaintext highlighter-rouge">--realtime</code>) will solve this problem, but it requires <a href="http://emcrisostomo.github.io/fswatch/"><strong>fswatch</strong></a> to be installed on your machine.</p>
+
+<h2 id="deploying-to-github-pages">Deploying to GitHub Pages</h2>
+
+<p>Before the deployment begins, checkout the file <code class="language-plaintext highlighter-rouge">_config.yml</code> and make sure that the <code class="language-plaintext highlighter-rouge">url</code> has been configured. What’s more, if you prefer the <a href="https://help.github.com/en/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites">Project site on GitHub</a> and also use the default domain <code class="language-plaintext highlighter-rouge">&lt;username&gt;.github.io</code>, remember to change the <code class="language-plaintext highlighter-rouge">baseurl</code> to your project name that starting with a slash. For example, <code class="language-plaintext highlighter-rouge">/project</code>.</p>
+
+<h3 id="option-1-built-by-github-pages">Option 1: Built by GitHub Pages</h3>
+
+<p>By deploying the site in this way, you’re allowed to push the source code directly to the remote.</p>
+
+<blockquote>
+  <p><strong>Note</strong>: If you want to use any third-party Jekyll plugins that not in <a href="https://pages.github.com/versions/">this list</a>, stop reading the current approach and go to <a href="#option-2-build-locally"><em>Option 2: Build locally</em></a>.</p>
+</blockquote>
+
+<p><strong>1</strong>. Rename the repository to:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Site Type</th>
+      <th style="text-align: left">Repo’s Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">User or Organization</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">&lt;username&gt;.github.io</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Project</td>
+      <td style="text-align: left">Any one except <code class="language-plaintext highlighter-rouge">&lt;username&gt;.github.io</code>, let’s say <code class="language-plaintext highlighter-rouge">project</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>2</strong>. Commit the changes of the repo first, then run the initialization script:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bash tools/init.sh
+</code></pre></div></div>
+
+<blockquote>
+  <p>Please note that the <em>Recent Update</em> list requires the latest git-log date of posts, thus make sure the changes in <code class="language-plaintext highlighter-rouge">_posts</code> have been committed before running this command.</p>
+</blockquote>
+
+<p>it will automatically generates the <em>Latest Modified Date</em> and <em>Categories / Tags</em> page for the posts and submit a commit. Its output is similar to the following log:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">[INFO] Success to update lastmod for 4 post(s).
+[INFO] Succeed! 3 category-pages created.
+[INFO] Succeed! 4 tag-pages created.
+[Automation] Updated the Categories, Tags, Lastmod for post(s).
+ 11 files changed, 46 insertions(+), 3 deletions(-)
+</span><span class="c"> ...
+</span><span class="go">Updated the Categories, Tags, Lastmod for post(s).
+</span></code></pre></div></div>
+
+<p><strong>3</strong>. Push the changes to <code class="language-plaintext highlighter-rouge">origin/master</code> then go to GitHub website and enable GitHub Pages service for the repo.</p>
+
+<p><strong>4</strong>. Check it out:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Site Type</th>
+      <th style="text-align: left">Site URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">User or Organization</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">https://&lt;username&gt;.github.io/</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Project</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">https://&lt;username&gt;.github.io/project/</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="option-2-build-locally">Option 2: Build Locally</h3>
+
+<p>For security reasons, GitHub Pages runs on <code class="language-plaintext highlighter-rouge">safe</code> mode, which means the third-party Jekyll plugins or custom scripts won’t work. If you want to use any another plugins that not in the <a href="https://pages.github.com/versions/">whitelist</a>, <strong>you have to generate the site locally rather than on GitHub Pages</strong>.</p>
+
+<p><strong>1</strong>. Browse to GitHub website, create a brand new repo named:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Site Type</th>
+      <th style="text-align: left">Repo’s Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">User or Organization</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">&lt;username&gt;.github.io</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Project</td>
+      <td style="text-align: left">Any one except <code class="language-plaintext highlighter-rouge">&lt;username&gt;.github.io</code>, let’s say <code class="language-plaintext highlighter-rouge">project</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>and clone it.</p>
+
+<p><strong>2</strong>. In the root of the source project, build your site by:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bash tools/build.sh <span class="nt">-d</span> /path/to/local/project/
+</code></pre></div></div>
+
+<p>The generated static files will be placed in the root of <code class="language-plaintext highlighter-rouge">/path/to/local/project</code>. Commit and push the changes to the <code class="language-plaintext highlighter-rouge">master</code> branch on GitHub.</p>
+
+<p><strong>3</strong>. Go to GitHub website and enable Pages service for the new repository.</p>
+
+<p><strong>4</strong>. Visit at:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Site Type</th>
+      <th style="text-align: left">Site URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">User or Organization</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">https://&lt;username&gt;.github.io/</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Project</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">https://&lt;username&gt;.github.io/project/</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="finishing-work">Finishing work</h3>
+
+<p>No matter which way you choose to deploy the website on GitHub, please enforce the <code class="language-plaintext highlighter-rouge">HTTPS</code> for it. See official docs: <a href="https://help.github.com/en/github/working-with-github-pages/securing-your-github-pages-site-with-https">Configuring a publishing source for your GitHub Pages site</a>.</p>
+:ET

@@ -6,9 +6,9 @@ categories: [Servicios de red e internet]
 tags: [entornos de desarollo, virtualización, Vagrant]
 ---
 
-![vagrant](/assets/img/sample/Hark_A_Vagrant.png)
-
 El cómic web "Hark! A Vagrant" de la artista canadiense Kate Beaton trata con humor eventos y personajes históricos. Pero de ésto no trata este post. A continuación, lo explico. 
+
+![vagrant](/assets/img/sample/Hark_A_Vagrant.png)
 
 ## Instalación de Vagrant (desarrollo de escenarios de forma fácil)
 
