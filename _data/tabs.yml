@@ -6,10 +6,10 @@
 
 
 -
-  name: Home
+  name: Inicio
   icon: "fas fa-home"
 -
-  name: Categories
+  name: Categorías
   icon: "fas fa-stream"
   path: tabs
   url: categories
@@ -19,12 +19,12 @@
   path: tabs
   url: tags
 -
-  name: "Archives"
+  name: "Post"
   path: tabs
-  url: archives
+  url: post
   icon: "fas fa-archive"
 -
-  name: "About"
+  name: "Quién soy"
   icon: "fas fa-info"
   path: tabs
   url: about

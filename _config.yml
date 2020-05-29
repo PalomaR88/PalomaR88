@@ -13,33 +13,34 @@ title: Paloma R. García                          # the main title
 tagline: Un blog sobre sistemas informáticos en red  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, portfolio, sidebar,
-  bootstrap Jekyll theme with responsive web design
-  and focuses on text presentation.
+  .
 
 # Replace with the website url, e.g. 'https://username.github.io'
 url: 'protocol://domain'
 
-author: your_full_name                  # change to your full name
+author: Paloma R. García Campón                  # change to your full name
 
 avatar: /assets/img/sample/avatar.png   # support internet resources
 
 github:
-  username: github_username             # change to your github username
+  username: PalomaR88             # change to your github username
 
 twitter:
-  username: twitter_username            # change to your twitter username
+  username: maizymantequiya            # change to your twitter username
+
+linkeding:
+  username: paloma-garcia-24103719a
 
 social:
-  name: your_full_name                  # it will shows as the copyright owner in Footer
-  email: example@doamin.com             # change to your email address
+  name: Paloma R. García Campón                  # it will shows as the copyright owner in Footer
+  email: palomagarciacampon08@gmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username      # change to your twitter homepage
-    - https://github.com/username       # change to your github homepage
+    - http://twitter.com/maizymantequiya      # change to your twitter homepage
+    - http://github.com/PalomaR88       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - http://linkedin.com/in/paloma-garcia-24103719a/
 
 google_site_verification: google_meta_tag_verification # change to your verification string
 
@@ -78,7 +79,7 @@ disqus:
 #
 #     dark   - Use the dark color scheme
 #
-theme_mode: dual
+theme_mode: dark
 
 # boolean type, global switch for ToC in posts.
 toc: true
