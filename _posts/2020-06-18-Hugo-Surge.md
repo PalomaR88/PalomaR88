@@ -11,6 +11,8 @@ tags: [Surge, Hugo]
 ![hugo](/assets/img/sample/surge-hugo/hugo.png)
 
 En esta entrada se va a explicar como utilizar Surge y Hugo. 
+
+Surge es noseque
 **1. Selecciona una combinación entre generador de páginas estáticas y servicio donde desplegar la página web. Escribe tu propuesta en redmine, cada propuesta debe ser original.**
 ~~~
 Surge - Hugo
