@@ -39,7 +39,7 @@ title: Categorías
       {% else %}
         <i class="far fa-folder fa-fw"></i>
       {% endif %}
-        <a href="{{ site.baseurl }}/categories/{{ category_name | replace: ' ', '-' | downcase | url_encode }}/"
+        <a href="/categories/{{ category_name | replace: ' ', '-' | downcase | url_encode }}/"
           class="ml-1 mr-2">{{ category_name }}</a>
         <!-- content count -->
         {% assign top_posts_size = site.categories[category_name] | size %}
