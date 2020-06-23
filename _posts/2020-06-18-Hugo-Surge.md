@@ -12,7 +12,7 @@ tags: [Surge, Hugo]
 
 En esta entrada se va a explicar como utilizar Surge y Hugo. 
 
-Esto es hugo noseque
+Otrocambio
 **1. Selecciona una combinación entre generador de páginas estáticas y servicio donde desplegar la página web. Escribe tu propuesta en redmine, cada propuesta debe ser original.**
 ~~~
 Surge - Hugo
