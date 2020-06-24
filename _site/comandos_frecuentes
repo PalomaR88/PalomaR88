@@ -1,3 +1,0 @@
-bash tools/init.sh
-jekyll build
-bundle exec jekyll serve
