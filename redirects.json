@@ -1,1 +1,1 @@
-{"/norobots/":"http://localhost:4000/404.html","/assets/":"http://localhost:4000/404.html","/tabs/":"http://localhost:4000/404.html","/categories/":"http://localhost:4000/404.html","/tags/":"http://localhost:4000/404.html","/posts/":"http://localhost:4000/404.html"}
+{"/norobots/":"protocol://domain/404.html","/assets/":"protocol://domain/404.html","/tabs/":"protocol://domain/404.html","/categories/":"protocol://domain/404.html","/tags/":"protocol://domain/404.html","/posts/":"protocol://domain/404.html"}
