@@ -81,9 +81,9 @@ end ACLCorreo;
    				   p_host varchar2) 
   is
     v_mailhost varchar2(80) := ltrim(rtrim(p_host));
-    v_mail_conn    utl_smtp.connection;
-    v_crlf varchar2( 2 ):= CHR( 13 ) || CHR( 10 );
-    v_mesg varchar2( 1000 ); 
+    v_mail_conn utl_smtp.connection;
+    v_crlf varchar2(2):= CHR(13) || CHR(10);
+    v_mesg varchar2(1000);
   begin
     v_mail_conn := utl_smtp.open_connection(mailhost, 25); 
     v_mesg:= 'Date: ' ||TO_CHAR( SYSDATE, 'dd Mon yy hh24:mi:ss' )|| v_crlf ||'From:  &lt;'||p_envia||'&gt;' || v_crlf || 'Subject: '||p_asunto || v_crlf ||'To: '||p_recibe || v_crlf ||'' || v_crlf || p_cuerpo;
@@ -91,7 +91,7 @@ end ACLCorreo;
     utl_smtp.mail(v_mail_conn, p_envia);
     utl_smtp.rcpt(v_mail_conn, p_recibe);
     utl_smtp.data(v_mail_conn, v_mesg);
-    utl_smtp.quit(v_mail_conn);         
+    utl_smtp.quit(v_mail_conn);
 end Enviar; 
 /
 </pre></table></code></div></div><h1 id="procedimientos-de-recolección-de-información">Procedimientos de recolección de información</h1><p>Lo primero que se necesata conocer es el correo del cliente, para ello se utiliza la siguiente función:</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
