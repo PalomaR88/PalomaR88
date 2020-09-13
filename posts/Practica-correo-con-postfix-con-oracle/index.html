@@ -40,10 +40,10 @@ grant execute on sys.UTL_SMTP to &lt;usuario_oracleDB&gt;;
   is
     begin
       dbms_network_acl_admin.create_acl	(acl		=&gt; 'www.xml',
-	                description	=&gt; 'WWW ACL',
-					principal   =&gt; '&lt;usuario_oracle&gt;',
-					is_grant    =&gt; true,
-					privilege   =&gt; 'connect');
+	                	description	=&gt; 'WWW ACL',
+						principal   =&gt; '&lt;usuario_oracle&gt;',
+						is_grant    =&gt; true,
+						privilege   =&gt; 'connect');
 	  dbms_network_acl_admin.add_privilege	(acl		=&gt; 'www.xml',
 	                                       			principal	=&gt; '&lt;usuario_oracle&gt;',
 										   			is_grant  	=&gt; true,
@@ -52,7 +52,7 @@ grant execute on sys.UTL_SMTP to &lt;usuario_oracleDB&gt;;
 												host =&gt; '&lt;servidor_correo&gt;');
 end ACLCorreo;
 /
-</pre></table></code></div></div><p>Y se ejecuta el procedimiento:</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></table></code></div></div><p>* * * * Y se ejecuta el procedimiento:</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre><td class="rouge-code"><pre>exec ACLCorreo;
 </pre></table></code></div></div><p>Por último, se crea un procedimiento que permita mandar correos:</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
