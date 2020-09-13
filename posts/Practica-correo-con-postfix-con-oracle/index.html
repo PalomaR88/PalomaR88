@@ -40,7 +40,7 @@ grant execute on sys.UTL_SMTP to &lt;usuario_oracleDB&gt;;
   is
     begin
       dbms_network_acl_admin.create_acl(acl         =&gt; 'www.xml',
-                                	    description =&gt; 'WWW ACL',
+	  									description =&gt; 'WWW ACL',
                                 	    principal   =&gt; '&lt;usuario_oracle&gt;',
                                 	    is_grant    =&gt; true,
                                 	    privilege   =&gt; 'connect');
